@@ -1,0 +1,102 @@
+.feedback {
+  flex: 4;
+  padding: 30px;
+  background: #f8fafc;
+  min-height: 100vh;
+}
+
+.feedbackHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.feedbackHeader button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.feedbackCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.feedbackCard {
+  background: white;
+  padding: 22px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.feedbackIcon {
+  width: 60px;
+  height: 60px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.feedbackIcon svg {
+  color: white;
+  font-size: 30px;
+}
+
+.feedbackTable {
+  background: white;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.feedbackItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.feedbackItem:last-child {
+  border: none;
+}
+
+.feedbackItem p {
+  margin-top: 10px;
+  color: #666;
+  max-width: 600px;
+}
+
+.feedbackItem span {
+  color: #f59e0b;
+}
+
+.feedbackItem button {
+  border: none;
+  padding: 8px 15px;
+  border-radius: 20px;
+  color: white;
+  margin-top: 10px;
+}
+
+.positive {
+  background: #16a34a;
+}
+
+.neutral {
+  background: #f59e0b;
+}
+
+.negative {
+  background: #ef4444;
+}

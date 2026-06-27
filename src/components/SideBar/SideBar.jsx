@@ -10,9 +10,7 @@ import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import BarChartIcon from "@mui/icons-material/BarChart";
 import DynamicFeedIcon from "@mui/icons-material/DynamicFeed";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
-import MessageIcon from "@mui/icons-material/Message";
 
-import ReportIcon from "@mui/icons-material/Report";
 import { Link } from "react-router-dom";
 export default function SideBar() {
   return (
@@ -81,35 +79,29 @@ export default function SideBar() {
         <div className="sidebarmenu">
           <h3 className="sidebartitle">Notification</h3>
           <ul className="sidebarlist">
-            <li className="sidebaritem">
-              <MailOutlineIcon className="sidebaricon" />
-              Mail
-            </li>
-            <li className="sidebaritem">
-              <DynamicFeedIcon className="sidebaricon" />
-              Feedback
-            </li>
-            <li className="sidebaritem">
-              <MessageIcon className="sidebaricon" />
-              Messages
-            </li>
+            <Link to="/mail" className="link">
+              <li className="sidebaritem">
+                <MailOutlineIcon className="sidebaricon" />
+                Mail
+              </li>
+            </Link>
+            <Link to="/feedback" className="link">
+              <li className="sidebaritem">
+                <DynamicFeedIcon className="sidebaricon" />
+                Feedback
+              </li>
+            </Link>
           </ul>
         </div>
         <div className="sidebarmenu">
           <h3 className="sidebartitle">Staff</h3>
           <ul className="sidebarlist">
-            <li className="sidebaritem ">
-              <ChatBubbleOutlineIcon className="sidebaricon" />
-              Manage
-            </li>
-            <li className="sidebaritem">
-              <TimelineIcon className="sidebaricon" />
-              Analytics
-            </li>
-            <li className="sidebaritem">
-              <ReportIcon className="sidebaricon" />
-              Reports
-            </li>
+            <Link to="/manage" className="link">
+              <li className="sidebaritem ">
+                <ChatBubbleOutlineIcon className="sidebaricon" />
+                Manage
+              </li>
+            </Link>
           </ul>
         </div>
       </div>

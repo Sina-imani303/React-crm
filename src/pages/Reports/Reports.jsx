@@ -11,7 +11,14 @@ import {
   Tooltip,
   XAxis,
   YAxis,
+  PieChart,
+  Pie,
+  Cell,
+  Legend,
+  BarChart,
+  Bar,
 } from "recharts";
+
 export default function Reports() {
   const cards = [
     {
@@ -56,6 +63,23 @@ export default function Reports() {
     { month: "Oct", revenue: 9800 },
     { month: "Nov", revenue: 10300 },
     { month: "Dec", revenue: 11400 },
+  ];
+  const pieData = [
+    { name: "Electronics", value: 40 },
+    { name: "Fashion", value: 25 },
+    { name: "Food", value: 20 },
+    { name: "Books", value: 15 },
+  ];
+
+  const COLORS = ["#4F46E5", "#22C55E", "#F59E0B", "#EF4444"];
+
+  const compareData = [
+    { month: "Jan", sales: 4000, profit: 2400 },
+    { month: "Feb", sales: 3200, profit: 1398 },
+    { month: "Mar", sales: 5200, profit: 4200 },
+    { month: "Apr", sales: 6100, profit: 3800 },
+    { month: "May", sales: 7000, profit: 5100 },
+    { month: "Jun", sales: 8500, profit: 6200 },
   ];
   return (
     <div className="reports">
@@ -120,6 +144,57 @@ export default function Reports() {
                 fill="url(#colorRevenue)"
               />
             </AreaChart>
+          </ResponsiveContainer>
+        </div>
+      </div>
+      <div className="reportBottom">
+        {/* Pie Chart */}
+
+        <div className="pieCard">
+          <h2>Sales by Category</h2>
+
+          <ResponsiveContainer width="100%" height={320}>
+            <PieChart>
+              <Pie
+                data={pieData}
+                dataKey="value"
+                nameKey="name"
+                innerRadius={60}
+                outerRadius={90}
+                paddingAngle={4}
+              >
+                {pieData.map((item, index) => (
+                  <Cell key={index} fill={COLORS[index]} />
+                ))}
+              </Pie>
+
+              <Tooltip />
+              <Legend />
+            </PieChart>
+          </ResponsiveContainer>
+        </div>
+
+        {/* Bar Chart */}
+
+        <div className="barCard">
+          <h2>Monthly Comparison</h2>
+
+          <ResponsiveContainer width="100%" height={320}>
+            <BarChart data={compareData}>
+              <CartesianGrid strokeDasharray="3 3" />
+
+              <XAxis dataKey="month" />
+
+              <YAxis />
+
+              <Tooltip />
+
+              <Legend />
+
+              <Bar dataKey="sales" fill="#4F46E5" radius={[5, 5, 0, 0]} />
+
+              <Bar dataKey="profit" fill="#22C55E" radius={[5, 5, 0, 0]} />
+            </BarChart>
           </ResponsiveContainer>
         </div>
       </div>

@@ -116,3 +116,34 @@
   border-radius: 10px;
   cursor: pointer;
 }
+.reportBottom {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 25px;
+
+  margin-top: 30px;
+}
+
+.pieCard,
+.barCard {
+  background: #fff;
+
+  padding: 25px;
+
+  border-radius: 18px;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.pieCard h2,
+.barCard h2 {
+  margin-bottom: 20px;
+}
+
+@media (max-width: 992px) {
+  .reportBottom {
+    grid-template-columns: 1fr;
+  }
+}

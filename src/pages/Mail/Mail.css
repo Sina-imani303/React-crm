@@ -1,0 +1,437 @@
+.mail {
+  flex: 4;
+  padding: 30px;
+  background: #f8fafc;
+  min-height: 100vh;
+}
+
+.mailHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.mailHeader h1 {
+  font-size: 34px;
+  color: #111827;
+}
+
+.mailHeader p {
+  color: #6b7280;
+  margin-top: 8px;
+}
+
+.composeBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  border: none;
+
+  background: #2563eb;
+
+  color: white;
+
+  padding: 14px 24px;
+
+  border-radius: 12px;
+
+  cursor: pointer;
+
+  font-weight: 600;
+
+  transition: 0.3s;
+}
+
+.composeBtn:hover {
+  background: #1d4ed8;
+}
+.mailSearch {
+  background: white;
+
+  display: flex;
+
+  align-items: center;
+
+  padding: 15px 20px;
+
+  border-radius: 14px;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+
+  margin-bottom: 25px;
+}
+
+.mailSearch input {
+  border: none;
+
+  outline: none;
+
+  margin-left: 15px;
+
+  width: 100%;
+
+  font-size: 15px;
+}
+
+.mailCards {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+  gap: 20px;
+}
+
+.mailCard {
+  background: white;
+
+  border-radius: 18px;
+
+  padding: 22px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.mailIcon {
+  width: 60px;
+
+  height: 60px;
+
+  border-radius: 15px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+}
+
+.mailIcon svg {
+  color: white;
+}
+
+.mailCard span {
+  color: #6b7280;
+}
+
+.mailCard h2 {
+  margin-top: 8px;
+}
+.mailContent {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.inbox,
+.mailPreview {
+  background: #fff;
+  border-radius: 18px;
+  padding: 25px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.inbox h2,
+.mailPreview h2 {
+  margin-bottom: 20px;
+}
+
+.mailItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.mailItem:hover {
+  background: #f8fafc;
+  border-radius: 10px;
+  padding-left: 10px;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #2563eb;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.mailInfo {
+  flex: 1;
+  margin-left: 15px;
+}
+
+.mailInfo h4 {
+  margin-bottom: 5px;
+}
+
+.mailInfo span {
+  color: #777;
+  font-size: 14px;
+}
+
+.mailTime {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.badge {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #2563eb;
+  margin-top: 8px;
+}
+
+.previewCard h3 {
+  margin-bottom: 10px;
+}
+
+.previewCard span {
+  color: #777;
+}
+
+.previewCard p {
+  margin: 25px 0;
+  line-height: 1.8;
+  color: #444;
+}
+
+.previewCard button {
+  border: none;
+  background: #2563eb;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+@media (max-width: 992px) {
+  .mailContent {
+    grid-template-columns: 1fr;
+  }
+}
+.mailBottom {
+  display: grid;
+
+  grid-template-columns: 300px 1fr;
+
+  gap: 25px;
+
+  margin-top: 30px;
+}
+
+.labelCard,
+.activityCard {
+  background: white;
+
+  padding: 25px;
+
+  border-radius: 18px;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.labelCard h2,
+.activityCard h2 {
+  margin-bottom: 20px;
+}
+
+.labelItem {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 18px;
+
+  font-weight: 500;
+}
+
+.activityItem {
+  display: flex;
+
+  gap: 15px;
+
+  padding: 15px 0;
+
+  border-bottom: 1px solid #eee;
+}
+
+.activityItem:last-child {
+  border: none;
+}
+
+.activityIcon {
+  color: #2563eb;
+}
+
+.activityItem h4 {
+  margin-bottom: 5px;
+}
+
+.activityItem span {
+  color: #777;
+
+  font-size: 14px;
+}
+
+@media (max-width: 992px) {
+  .mailBottom {
+    grid-template-columns: 1fr;
+  }
+}
+.composeOverlay {
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.45);
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  z-index: 999;
+}
+
+.composeModal {
+  width: 700px;
+
+  background: white;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+
+  animation: popup 0.35s;
+}
+
+@keyframes popup {
+  from {
+    opacity: 0;
+
+    transform: scale(0.8);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: scale(1);
+  }
+}
+
+.composeHeader {
+  padding: 20px 25px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  background: #2563eb;
+
+  color: white;
+}
+
+.closeIcon {
+  cursor: pointer;
+}
+
+.composeBody {
+  padding: 25px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 18px;
+}
+
+.composeBody input {
+  padding: 14px;
+
+  border: 1px solid #ddd;
+
+  border-radius: 10px;
+
+  outline: none;
+}
+
+.composeBody textarea {
+  resize: none;
+
+  padding: 15px;
+
+  border: 1px solid #ddd;
+
+  border-radius: 10px;
+
+  outline: none;
+
+  font-family: inherit;
+}
+
+.composeFooter {
+  display: flex;
+
+  justify-content: flex-end;
+
+  gap: 15px;
+}
+
+.cancelBtn {
+  padding: 12px 22px;
+
+  border: none;
+
+  background: #e5e7eb;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+}
+
+.sendBtn {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 12px 22px;
+
+  border: none;
+
+  background: #2563eb;
+
+  color: white;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+}
