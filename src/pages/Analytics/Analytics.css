@@ -1,0 +1,48 @@
+.analytics {
+  flex: 4;
+  padding: 30px;
+  background: #f8fafc;
+  min-height: 100vh;
+}
+
+.analyticsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.analyticsHeader h1 {
+  font-size: 34px;
+  color: #111827;
+}
+
+.analyticsHeader p {
+  margin-top: 8px;
+  color: #6b7280;
+}
+
+.downloadBtn {
+  border: none;
+  background: #2563eb;
+  color: #fff;
+  padding: 12px 22px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.analyticsGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.largeCard,
+.smallCard {
+  background: #fff;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}

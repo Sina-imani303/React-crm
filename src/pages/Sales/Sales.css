@@ -1,0 +1,105 @@
+.sales {
+  flex: 4;
+  width: 100%;
+  padding: 30px;
+  background: #f8fafc;
+  min-height: 100vh;
+}
+.salesBottom {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.topProductWrapper {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+}
+
+.categoryCard {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+}
+
+.categoryCard h2 {
+  margin-bottom: 20px;
+  color: #111827;
+}
+.salesCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.salesCard {
+  background: #fff;
+  border-radius: 18px;
+  padding: 22px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.salesCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.salesIcon {
+  width: 65px;
+  height: 65px;
+  min-width: 65px;
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.salesIcon svg {
+  color: #fff;
+  font-size: 34px;
+}
+
+.salesContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.salesContent span {
+  color: #6b7280;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.salesContent h2 {
+  margin: 8px 0;
+  font-size: 30px;
+  color: #111827;
+  font-weight: 700;
+}
+
+.salesContent small {
+  color: #16a34a;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .salesCards {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 992px) {
+  .salesBottom {
+    grid-template-columns: 1fr;
+  }
+}

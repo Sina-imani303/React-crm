@@ -1,0 +1,35 @@
+.home {
+  flex: 4;
+  padding: 25px;
+}
+
+.homeHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.homeHeader h1 {
+  font-size: 34px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.homeHeader p {
+  margin-top: 8px;
+  color: #6b7280;
+  font-size: 16px;
+}
+
+.headerDate {
+  background: white;
+  padding: 12px 18px;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  font-weight: 600;
+}
+.homewidgets {
+  display: flex;
+  margin: 20px;
+}

@@ -1,0 +1,58 @@
+.Widgetsm{
+    flex: 1;
+    padding: 20px;
+    margin-right: 20px;
+    box-shadow: 0 0 15px -10px rgba(0, 0, 0, 0.75) ;
+
+}
+
+.Widgetsmtitle{
+    font-size: 22px;
+    font-weight:600 ;
+
+}
+.Widgetsmlist{
+     margin: 0;
+     padding: 0;
+     list-style: none;
+
+}
+.Widgetsmlistitem{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0px;
+}
+.Widgetsmimg{
+    width: 40px;  
+    height: 40px;
+    border-radius: 50%;
+   object-fit: cover ; 
+}
+.Widgetsmuser{
+    display: flex;
+    flex-direction: column;  
+    align-items: center;
+}
+.Widgetsmusername{
+    font-weight: 600;
+}
+
+.Widgetsmusertitle{
+    font-weight: 300;
+}
+.Widgetsmbtn{
+   display: flex;
+   align-items: center;
+   border: none;
+   border-radius: 10px;
+   padding: 7px 10px; 
+   background-color: #eeeef7;
+   color: #555;
+   cursor: pointer;
+}
+.Widgetsmbtn{
+   font-size: 16px !important;
+    margin-right: 5px;
+
+}

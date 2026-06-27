@@ -1,0 +1,50 @@
+.analyticsCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.analyticsCard {
+  background: #fff;
+  padding: 25px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  transition: 0.3s;
+}
+
+.analyticsCard:hover {
+  transform: translateY(-5px);
+}
+
+.analyticsIcon {
+  width: 65px;
+  height: 65px;
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.analyticsIcon svg {
+  color: white;
+  font-size: 32px;
+}
+
+.analyticsContent span {
+  color: #888;
+  font-size: 14px;
+}
+
+.analyticsContent h2 {
+  margin: 6px 0;
+  font-size: 30px;
+}
+
+.analyticsContent small {
+  color: #22c55e;
+  font-weight: 600;
+}

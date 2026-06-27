@@ -1,0 +1,118 @@
+.reports {
+  flex: 4;
+  padding: 30px;
+  background: #f8fafc;
+  min-height: 100vh;
+}
+
+.reportsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.reportsHeader h1 {
+  font-size: 34px;
+  color: #111827;
+}
+
+.reportsHeader p {
+  margin-top: 8px;
+  color: #6b7280;
+}
+
+.reportsHeader button {
+  border: none;
+  background: #2563eb;
+  color: #fff;
+  padding: 14px 24px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.reportCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.reportCard {
+  background: #fff;
+  padding: 24px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: 0.3s;
+}
+
+.reportCard:hover {
+  transform: translateY(-5px);
+}
+
+.reportIcon {
+  width: 65px;
+  height: 65px;
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reportIcon svg {
+  color: white;
+  font-size: 32px;
+}
+
+.reportContent span {
+  color: #6b7280;
+  font-size: 15px;
+}
+
+.reportContent h2 {
+  margin: 8px 0;
+  color: #111827;
+}
+
+.reportContent small {
+  color: #16a34a;
+  font-weight: 600;
+}
+.reportCharts {
+  margin-top: 30px;
+}
+
+.reportChart {
+  background: #fff;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.chartHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.chartHeader h2 {
+  color: #111827;
+}
+
+.chartHeader p {
+  color: #6b7280;
+  margin-top: 5px;
+}
+
+.chartHeader button {
+  border: none;
+  background: #2563eb;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
