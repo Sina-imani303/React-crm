@@ -1,50 +1,137 @@
 .analyticsCards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 20px;
+  width: 100%;
   margin-top: 20px;
 }
 
 .analyticsCard {
-  background: #fff;
-  padding: 25px;
-  border-radius: 18px;
   display: flex;
   align-items: center;
   gap: 20px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
-  transition: 0.3s;
+  min-width: 0;
+  padding: 25px;
+  border: 1px solid #eef2f7;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .analyticsCard:hover {
   transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
 }
 
 .analyticsIcon {
+  display: flex;
   width: 65px;
   height: 65px;
-  border-radius: 16px;
-  display: flex;
-  justify-content: center;
+  min-width: 65px;
+  flex-shrink: 0;
   align-items: center;
+  justify-content: center;
+  border-radius: 16px;
 }
 
 .analyticsIcon svg {
-  color: white;
+  color: #ffffff;
   font-size: 32px;
 }
 
+.analyticsContent {
+  min-width: 0;
+}
+
 .analyticsContent span {
-  color: #888;
-  font-size: 14px;
+  display: block;
+  color: #6b7280;
+  font-size: 15px;
+  font-weight: 500;
 }
 
 .analyticsContent h2 {
-  margin: 6px 0;
+  margin: 7px 0;
+  overflow: hidden;
+  color: #111827;
   font-size: 30px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .analyticsContent small {
-  color: #22c55e;
+  color: #16a34a;
+  font-size: 13px;
   font-weight: 600;
+}
+
+@media screen and (max-width: 1200px) {
+  .analyticsCards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .analyticsCards {
+    gap: 16px;
+  }
+
+  .analyticsCard {
+    padding: 20px;
+  }
+
+  .analyticsIcon {
+    width: 58px;
+    height: 58px;
+    min-width: 58px;
+  }
+
+  .analyticsIcon svg {
+    font-size: 29px;
+  }
+
+  .analyticsContent h2 {
+    font-size: 26px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .analyticsCards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .analyticsCard {
+    gap: 15px;
+    padding: 18px;
+    border-radius: 14px;
+  }
+
+  .analyticsIcon {
+    width: 54px;
+    height: 54px;
+    min-width: 54px;
+    border-radius: 14px;
+  }
+
+  .analyticsIcon svg {
+    font-size: 27px;
+  }
+
+  .analyticsContent span {
+    font-size: 14px;
+  }
+
+  .analyticsContent h2 {
+    font-size: 23px;
+  }
+
+  .analyticsContent small {
+    font-size: 12px;
+  }
 }

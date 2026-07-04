@@ -1,31 +1,63 @@
-import React from 'react'
 import "./TopBar.css";
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import LanguageIcon from '@mui/icons-material/Language';
-import SettingsIcon from '@mui/icons-material/Settings';
+
+import NotificationsIcon from "@mui/icons-material/Notifications";
+import LanguageIcon from "@mui/icons-material/Language";
+import SettingsIcon from "@mui/icons-material/Settings";
+import SearchIcon from "@mui/icons-material/Search";
+
 export default function TopBar() {
   return (
-    <div className='topbar'>
-      <div className="topbarwraper">
+    <header className="topbar">
+      <div className="topbarwrapper">
         <div className="topleft">
-          <span className='logo fw-bold'> SINA</span>
+          <span className="logo">SINA</span>
         </div>
+
+        <div className="topbarSearch">
+          <SearchIcon className="topbarSearchIcon" />
+
+          <input type="text" placeholder="Search dashboard..." />
+        </div>
+
         <div className="topright">
-          <div className="topbariconContainer">
-            <NotificationsIcon/>
-            <span className='topiconbage'>2</span>
+          <button
+            type="button"
+            className="topbariconContainer"
+            aria-label="Notifications"
+          >
+            <NotificationsIcon />
+
+            <span className="topiconbadge">2</span>
+          </button>
+
+          <button
+            type="button"
+            className="topbariconContainer"
+            aria-label="Language"
+          >
+            <LanguageIcon />
+
+            <span className="topiconbadge">2</span>
+          </button>
+
+          <button
+            type="button"
+            className="topbariconContainer"
+            aria-label="Settings"
+          >
+            <SettingsIcon />
+          </button>
+
+          <div className="topbarProfile">
+            <img src="/1.jpg" alt="User profile" className="topavatar" />
+
+            <div className="topbarUserInfo">
+              <span className="topbarUserName">Sina</span>
+              <small>Admin</small>
+            </div>
           </div>
-          <div className="topbariconContainer">
-            < LanguageIcon/>
-            <span className='topiconbage'>2</span>
-          </div>
-          <div className="topbariconContainer">
-            <SettingsIcon/>
-          </div>
-          <img src="1.jpg" alt="" className='topavatar' />
         </div>
       </div>
-      
-    </div>
-  )
+    </header>
+  );
 }

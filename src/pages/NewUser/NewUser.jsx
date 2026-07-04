@@ -1,6 +1,7 @@
 import "./NewUser.css";
 import { useState } from "react";
 import CloudUploadOutlinedIcon from "@mui/icons-material/CloudUploadOutlined";
+
 export default function NewUser() {
   const [preview, setPreview] = useState(null);
 
@@ -11,6 +12,7 @@ export default function NewUser() {
       setPreview(URL.createObjectURL(file));
     }
   };
+
   return (
     <div className="newUser">
       <div className="newUserHeader">
@@ -19,11 +21,12 @@ export default function NewUser() {
           <p>Manage your team and add a new member.</p>
         </div>
 
-        <button>Create User</button>
+        <button type="button">Create User</button>
       </div>
+
       <div className="uploadCard">
         <div className="avatarSection">
-          <div className="avatar">
+          <div className="newUserAvatar">
             {preview ? <img src={preview} alt="avatar" /> : <span>S</span>}
           </div>
 
@@ -47,6 +50,7 @@ export default function NewUser() {
           </div>
         </div>
       </div>
+
       <div className="userForm">
         <div className="formGroup">
           <label>First Name</label>
@@ -81,7 +85,7 @@ export default function NewUser() {
         <div className="formGroup">
           <label>Department</label>
 
-          <select>
+          <select defaultValue="IT">
             <option>IT</option>
             <option>Marketing</option>
             <option>Finance</option>
@@ -92,7 +96,7 @@ export default function NewUser() {
         <div className="formGroup">
           <label>Role</label>
 
-          <select>
+          <select defaultValue="Admin">
             <option>Admin</option>
             <option>Manager</option>
             <option>Developer</option>
@@ -100,23 +104,24 @@ export default function NewUser() {
           </select>
         </div>
       </div>
+
       <div className="userOptions">
         <div className="optionCard">
           <h3>Gender</h3>
 
           <div className="radioGroup">
             <label>
-              <input type="radio" name="gender" />
+              <input type="radio" name="gender" value="male" />
               Male
             </label>
 
             <label>
-              <input type="radio" name="gender" />
+              <input type="radio" name="gender" value="female" />
               Female
             </label>
 
             <label>
-              <input type="radio" name="gender" />
+              <input type="radio" name="gender" value="other" />
               Other
             </label>
           </div>
@@ -127,7 +132,6 @@ export default function NewUser() {
 
           <label className="switch">
             <input type="checkbox" defaultChecked />
-
             <span className="slider"></span>
           </label>
 
@@ -136,7 +140,6 @@ export default function NewUser() {
 
         <div className="optionCard">
           <h3>Date of Birth</h3>
-
           <input className="dateInput" type="date" />
         </div>
       </div>

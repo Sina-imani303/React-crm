@@ -1,4 +1,4 @@
-import "./FeedBack.css";
+import "./Feedback.css";
 
 import StarOutlineIcon from "@mui/icons-material/StarOutline";
 import ThumbUpAltOutlinedIcon from "@mui/icons-material/ThumbUpAltOutlined";
@@ -9,28 +9,25 @@ export default function Feedback() {
   const cards = [
     {
       title: "Total Reviews",
-      value: "1,254",
+      value: "1,284",
       icon: <StarOutlineIcon />,
       color: "#2563eb",
     },
-
     {
       title: "Positive",
-      value: "924",
+      value: "892",
       icon: <ThumbUpAltOutlinedIcon />,
       color: "#16a34a",
     },
-
     {
       title: "Neutral",
-      value: "214",
+      value: "247",
       icon: <SentimentNeutralOutlinedIcon />,
       color: "#f59e0b",
     },
-
     {
       title: "Negative",
-      value: "116",
+      value: "145",
       icon: <ThumbDownAltOutlinedIcon />,
       color: "#ef4444",
     },
@@ -38,89 +35,96 @@ export default function Feedback() {
 
   const feedback = [
     {
-      name: "John Doe",
+      name: "Sarah Johnson",
       rate: "★★★★★",
-      comment: "Excellent dashboard. Very easy to use.",
-      date: "2 hours ago",
+      comment:
+        "Amazing service and a great experience. Everything was simple and easy to use.",
+      date: "June 24, 2026",
       status: "Positive",
     },
-
     {
-      name: "Emma Watson",
+      name: "Michael Brown",
       rate: "★★★★☆",
-      comment: "Clean UI and smooth experience.",
-      date: "Yesterday",
-      status: "Positive",
-    },
-
-    {
-      name: "Michael",
-      rate: "★★★☆☆",
-      comment: "Need more customization options.",
-      date: "Jul 18",
+      comment:
+        "The dashboard is very useful, but I would like to see more reporting options.",
+      date: "June 22, 2026",
       status: "Neutral",
     },
-
     {
-      name: "Sophia",
+      name: "Emma Wilson",
+      rate: "★★★★★",
+      comment:
+        "Excellent support team. They answered my questions very quickly.",
+      date: "June 20, 2026",
+      status: "Positive",
+    },
+    {
+      name: "David Miller",
       rate: "★★☆☆☆",
-      comment: "Found some bugs while editing.",
-      date: "Jul 17",
+      comment:
+        "The loading speed could be improved, especially on mobile devices.",
+      date: "June 18, 2026",
       status: "Negative",
     },
   ];
 
   return (
-    <div className="feedback">
+    <main className="feedback">
       <div className="feedbackHeader">
-        <div>
+        <div className="feedbackHeaderContent">
           <h1>Feedback</h1>
-
           <p>Manage customer reviews and suggestions.</p>
         </div>
 
-        <button>Add Review</button>
+        <button type="button" className="addReviewBtn">
+          Add Review
+        </button>
       </div>
 
-      <div className="feedbackCards">
+      <section className="feedbackCards">
         {cards.map((item, index) => (
           <div className="feedbackCard" key={index}>
-            <div className="feedbackIcon" style={{ background: item.color }}>
+            <div
+              className="feedbackIcon"
+              style={{ backgroundColor: item.color }}
+            >
               {item.icon}
             </div>
 
-            <div>
+            <div className="feedbackCardContent">
               <span>{item.title}</span>
-
               <h2>{item.value}</h2>
             </div>
           </div>
         ))}
-      </div>
+      </section>
 
-      <div className="feedbackTable">
-        <h2>Recent Feedback</h2>
+      <section className="feedbackTable">
+        <h2 className="feedbackTableTitle">Recent Feedback</h2>
 
-        {feedback.map((item, index) => (
-          <div className="feedbackItem" key={index}>
-            <div>
-              <h3>{item.name}</h3>
+        <div className="feedbackList">
+          {feedback.map((item, index) => (
+            <div className="feedbackItem" key={index}>
+              <div className="feedbackItemContent">
+                <h3>{item.name}</h3>
+                <span className="feedbackRate">{item.rate}</span>
+                <p>{item.comment}</p>
+              </div>
 
-              <span>{item.rate}</span>
+              <div className="feedbackItemMeta">
+                <h4>{item.date}</h4>
 
-              <p>{item.comment}</p>
+                <button
+                  type="button"
+                  className={`feedbackStatus ${item.status.toLowerCase()}`}
+                >
+                  {item.status}
+                </button>
+              </div>
             </div>
-
-            <div>
-              <h4>{item.date}</h4>
-
-              <button className={item.status.toLowerCase()}>
-                {item.status}
-              </button>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
+          ))}
+        </div>
+      </section>
+    </main>
   );
 }

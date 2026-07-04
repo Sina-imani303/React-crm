@@ -3,6 +3,7 @@ import PaidOutlinedIcon from "@mui/icons-material/PaidOutlined";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import GroupOutlinedIcon from "@mui/icons-material/GroupOutlined";
 import TrendingUpOutlinedIcon from "@mui/icons-material/TrendingUpOutlined";
+import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
 import {
   Area,
   AreaChart,
@@ -50,6 +51,7 @@ export default function Reports() {
       icon: <TrendingUpOutlinedIcon />,
     },
   ];
+
   const revenueData = [
     { month: "Jan", revenue: 4000 },
     { month: "Feb", revenue: 5200 },
@@ -64,6 +66,7 @@ export default function Reports() {
     { month: "Nov", revenue: 10300 },
     { month: "Dec", revenue: 11400 },
   ];
+
   const pieData = [
     { name: "Electronics", value: 40 },
     { name: "Fashion", value: 25 },
@@ -81,6 +84,7 @@ export default function Reports() {
     { month: "May", sales: 7000, profit: 5100 },
     { month: "Jun", sales: 8500, profit: 6200 },
   ];
+
   return (
     <div className="reports">
       <div className="reportsHeader">
@@ -89,25 +93,28 @@ export default function Reports() {
           <p>Generate and analyze your business reports.</p>
         </div>
 
-        <button>Export PDF</button>
+        <button className="exportReportBtn">
+          <FileDownloadOutlinedIcon />
+          Export PDF
+        </button>
       </div>
+
       <div className="reportCards">
         {cards.map((card, index) => (
           <div className="reportCard" key={index}>
-            <div className="reportIcon" style={{ background: card.color }}>
+            <div className="reportIcon" style={{ backgroundColor: card.color }}>
               {card.icon}
             </div>
 
             <div className="reportContent">
               <span>{card.title}</span>
-
               <h2>{card.value}</h2>
-
               <small>{card.change} this month</small>
             </div>
           </div>
         ))}
       </div>
+
       <div className="reportCharts">
         <div className="reportChart">
           <div className="chartHeader">
@@ -116,86 +123,109 @@ export default function Reports() {
               <p>Revenue overview for the last 12 months</p>
             </div>
 
-            <button>Download</button>
+            <button>
+              <FileDownloadOutlinedIcon />
+              Download
+            </button>
           </div>
 
-          <ResponsiveContainer width="100%" height={350}>
-            <AreaChart data={revenueData}>
-              <defs>
-                <linearGradient id="colorRevenue" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#2563eb" stopOpacity={0.8} />
+          <div className="mainChartContainer">
+            <ResponsiveContainer width="100%" height="100%">
+              <AreaChart
+                data={revenueData}
+                margin={{
+                  top: 10,
+                  right: 10,
+                  left: -15,
+                  bottom: 0,
+                }}
+              >
+                <defs>
+                  <linearGradient id="colorRevenue" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="5%" stopColor="#2563eb" stopOpacity={0.8} />
+                    <stop offset="95%" stopColor="#2563eb" stopOpacity={0} />
+                  </linearGradient>
+                </defs>
 
-                  <stop offset="95%" stopColor="#2563eb" stopOpacity={0} />
-                </linearGradient>
-              </defs>
+                <CartesianGrid strokeDasharray="4 4" stroke="#e5e7eb" />
+                <XAxis dataKey="month" />
+                <YAxis />
+                <Tooltip />
 
-              <CartesianGrid strokeDasharray="4 4" />
-
-              <XAxis dataKey="month" />
-
-              <YAxis />
-
-              <Tooltip />
-
-              <Area
-                type="monotone"
-                dataKey="revenue"
-                stroke="#2563eb"
-                fill="url(#colorRevenue)"
-              />
-            </AreaChart>
-          </ResponsiveContainer>
+                <Area
+                  type="monotone"
+                  dataKey="revenue"
+                  stroke="#2563eb"
+                  strokeWidth={3}
+                  fill="url(#colorRevenue)"
+                />
+              </AreaChart>
+            </ResponsiveContainer>
+          </div>
         </div>
       </div>
+
       <div className="reportBottom">
-        {/* Pie Chart */}
-
         <div className="pieCard">
-          <h2>Sales by Category</h2>
+          <div className="bottomChartHeader">
+            <h2>Sales by Category</h2>
+            <p>Distribution of sales across categories</p>
+          </div>
 
-          <ResponsiveContainer width="100%" height={320}>
-            <PieChart>
-              <Pie
-                data={pieData}
-                dataKey="value"
-                nameKey="name"
-                innerRadius={60}
-                outerRadius={90}
-                paddingAngle={4}
-              >
-                {pieData.map((item, index) => (
-                  <Cell key={index} fill={COLORS[index]} />
-                ))}
-              </Pie>
+          <div className="bottomChartContainer">
+            <ResponsiveContainer width="100%" height="100%">
+              <PieChart>
+                <Pie
+                  data={pieData}
+                  dataKey="value"
+                  nameKey="name"
+                  cx="50%"
+                  cy="45%"
+                  innerRadius="38%"
+                  outerRadius="62%"
+                  paddingAngle={4}
+                >
+                  {pieData.map((item, index) => (
+                    <Cell key={item.name} fill={COLORS[index]} />
+                  ))}
+                </Pie>
 
-              <Tooltip />
-              <Legend />
-            </PieChart>
-          </ResponsiveContainer>
+                <Tooltip />
+                <Legend />
+              </PieChart>
+            </ResponsiveContainer>
+          </div>
         </div>
 
-        {/* Bar Chart */}
-
         <div className="barCard">
-          <h2>Monthly Comparison</h2>
+          <div className="bottomChartHeader">
+            <h2>Monthly Comparison</h2>
+            <p>Sales and profit performance</p>
+          </div>
 
-          <ResponsiveContainer width="100%" height={320}>
-            <BarChart data={compareData}>
-              <CartesianGrid strokeDasharray="3 3" />
+          <div className="bottomChartContainer">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart
+                data={compareData}
+                margin={{
+                  top: 10,
+                  right: 10,
+                  left: -15,
+                  bottom: 0,
+                }}
+              >
+                <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                <XAxis dataKey="month" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
 
-              <XAxis dataKey="month" />
+                <Bar dataKey="sales" fill="#4F46E5" radius={[5, 5, 0, 0]} />
 
-              <YAxis />
-
-              <Tooltip />
-
-              <Legend />
-
-              <Bar dataKey="sales" fill="#4F46E5" radius={[5, 5, 0, 0]} />
-
-              <Bar dataKey="profit" fill="#22C55E" radius={[5, 5, 0, 0]} />
-            </BarChart>
-          </ResponsiveContainer>
+                <Bar dataKey="profit" fill="#22C55E" radius={[5, 5, 0, 0]} />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
         </div>
       </div>
     </div>

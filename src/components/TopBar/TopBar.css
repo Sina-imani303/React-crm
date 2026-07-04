@@ -1,52 +1,250 @@
 .topbar {
-  width: 100%;
-  height: 50px;
-  background-color: #fff;
   position: sticky;
   top: 0;
   z-index: 999;
+  width: 100%;
+  height: 70px;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
 }
-.topbarwraper {
+
+.topbarwrapper {
+  width: 100%;
   height: 100%;
-  padding: 0px 20px;
+  padding: 0 24px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  box-sizing: border-box;
+}
+
+.topleft {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
 }
 
 .logo {
-  font-weight: bold;
+  color: #2563eb;
   font-size: 30px;
+  font-weight: 800;
+  letter-spacing: 1px;
   cursor: pointer;
-  color: darkblue;
 }
+
+.topbarSearch {
+  width: 100%;
+  max-width: 500px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 16px;
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.topbarSearch:focus-within {
+  background: #ffffff;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+.topbarSearchIcon {
+  flex-shrink: 0;
+  color: #9ca3af;
+  font-size: 21px !important;
+}
+
+.topbarSearch input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #111827;
+  font-size: 14px;
+}
+
+.topbarSearch input::placeholder {
+  color: #9ca3af;
+}
+
 .topright {
   display: flex;
   align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
 }
+
 .topbariconContainer {
   position: relative;
-  cursor: pointer;
-  margin-right: 10px;
-  color: #555;
-}
-.topiconbage {
-  position: absolute;
-  width: 15px;
-  height: 15px;
-  top: -5px;
-  right: 0;
-  background-color: red;
-  color: #fff;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: none;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 10px;
-  border-radius: 50%;
-}
-.topavatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+  background: transparent;
+  color: #6b7280;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.topbariconContainer:hover {
+  color: #2563eb;
+  background: #eff6ff;
+}
+
+.topbariconContainer svg {
+  font-size: 22px;
+}
+
+.topiconbadge {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  min-width: 17px;
+  height: 17px;
+  padding: 0 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ef4444;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: 20px;
+  font-size: 9px;
+  font-weight: 700;
+  box-sizing: border-box;
+}
+
+.topbarProfile {
+  margin-left: 8px;
+  padding-left: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-left: 1px solid #e5e7eb;
+  cursor: pointer;
+}
+
+.topavatar {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #e5e7eb;
+}
+
+.topbarUserInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.topbarUserName {
+  color: #111827;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.topbarUserInfo small {
+  color: #9ca3af;
+  font-size: 12px;
+}
+
+@media screen and (max-width: 992px) {
+  .topbarwrapper {
+    padding: 0 18px;
+    gap: 18px;
+  }
+
+  .topbarSearch {
+    max-width: 350px;
+  }
+
+  .topbarUserInfo {
+    display: none;
+  }
+
+  .topbarProfile {
+    padding-left: 10px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .topbar {
+    height: 64px;
+  }
+
+  .topbarwrapper {
+    padding: 0 15px;
+  }
+
+  .logo {
+    font-size: 25px;
+  }
+
+  .topbarSearch {
+    display: none;
+  }
+
+  .topright {
+    gap: 4px;
+  }
+
+  .topbariconContainer {
+    width: 38px;
+    height: 38px;
+  }
+
+  .topbarProfile {
+    margin-left: 4px;
+    padding-left: 8px;
+  }
+
+  .topavatar {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .topbarwrapper {
+    padding: 0 12px;
+  }
+
+  .logo {
+    font-size: 22px;
+  }
+
+  .topbariconContainer {
+    width: 35px;
+    height: 35px;
+  }
+
+  .topbariconContainer svg {
+    font-size: 20px;
+  }
+
+  .topright .topbariconContainer:nth-child(2) {
+    display: none;
+  }
+
+  .topbarProfile {
+    border-left: none;
+    padding-left: 2px;
+  }
+
+  .topavatar {
+    width: 36px;
+    height: 36px;
+  }
 }

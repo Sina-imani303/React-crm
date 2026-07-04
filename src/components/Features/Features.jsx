@@ -1,135 +1,91 @@
-import React from "react";
 import "./Features.css";
+
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 
 export default function Features() {
+  const features = [
+    {
+      title: "Revenue",
+      value: "$2,415",
+      rate: "-11.4",
+      trend: "down",
+    },
+    {
+      title: "Sales",
+      value: "$4,415",
+      rate: "-1.4",
+      trend: "down",
+    },
+    {
+      title: "Profit",
+      value: "$8,920",
+      rate: "+8.6",
+      trend: "up",
+    },
+    {
+      title: "Orders",
+      value: "1,254",
+      rate: "+12.3",
+      trend: "up",
+    },
+    {
+      title: "Customers",
+      value: "845",
+      rate: "+5.8",
+      trend: "up",
+    },
+    {
+      title: "Visitors",
+      value: "18.2K",
+      rate: "+15.1",
+      trend: "up",
+    },
+    {
+      title: "Conversion",
+      value: "6.4%",
+      rate: "+1.1",
+      trend: "up",
+    },
+    {
+      title: "Expenses",
+      value: "$1,240",
+      rate: "-3.2",
+      trend: "down",
+    },
+  ];
+
   return (
     <div className="features">
-      <div className="featureitem">
-        <span className="featuretitle">Revenue</span>
+      {features.map((item) => {
+        const isNegative = item.trend === "down";
 
-        <div className="featurecontainer">
-          <span className="featuremoney">$2,415</span>
+        return (
+          <div className="featureItem" key={item.title}>
+            <span className="featureTitle">{item.title}</span>
 
-          <span className="featurerate">
-            -11.4
-            <ArrowDownwardIcon className="featureicon negative" />
-          </span>
-        </div>
+            <div className="featureContainer">
+              <span className="featureMoney">{item.value}</span>
 
-        <span className="featuresub">Compared to last month</span>
-      </div>
+              <span
+                className={`featureRate ${
+                  isNegative ? "negativeRate" : "positiveRate"
+                }`}
+              >
+                {item.rate}
 
-      {/* Sales */}
-      <div className="featureitem">
-        <span className="featuretitle">Sales</span>
+                {isNegative ? (
+                  <ArrowDownwardIcon className="featureIcon" />
+                ) : (
+                  <ArrowUpwardIcon className="featureIcon" />
+                )}
+              </span>
+            </div>
 
-        <div className="featurecontainer">
-          <span className="featuremoney">$4,415</span>
-
-          <span className="featurerate">
-            -1.4
-            <ArrowDownwardIcon className="featureicon negative" />
-          </span>
-        </div>
-
-        <span className="featuresub">Compared to last month</span>
-      </div>
-
-      {/* Profit */}
-      <div className="featureitem">
-        <span className="featuretitle">Profit</span>
-
-        <div className="featurecontainer">
-          <span className="featuremoney">$8,920</span>
-
-          <span className="featurerate">
-            +8.6
-            <ArrowUpwardIcon className="featureicon" />
-          </span>
-        </div>
-
-        <span className="featuresub">Compared to last month</span>
-      </div>
-
-      {/* Orders */}
-      <div className="featureitem">
-        <span className="featuretitle">Orders</span>
-
-        <div className="featurecontainer">
-          <span className="featuremoney">1,254</span>
-
-          <span className="featurerate">
-            +12.3
-            <ArrowUpwardIcon className="featureicon" />
-          </span>
-        </div>
-
-        <span className="featuresub">Compared to last month</span>
-      </div>
-
-      {/* Customers */}
-      <div className="featureitem">
-        <span className="featuretitle">Customers</span>
-
-        <div className="featurecontainer">
-          <span className="featuremoney">845</span>
-
-          <span className="featurerate">
-            +5.8
-            <ArrowUpwardIcon className="featureicon" />
-          </span>
-        </div>
-
-        <span className="featuresub">Compared to last month</span>
-      </div>
-
-      <div className="featureitem">
-        <span className="featuretitle">Visitors</span>
-
-        <div className="featurecontainer">
-          <span className="featuremoney">18.2K</span>
-
-          <span className="featurerate">
-            +15.1
-            <ArrowUpwardIcon className="featureicon" />
-          </span>
-        </div>
-
-        <span className="featuresub">Compared to last month</span>
-      </div>
-
-      <div className="featureitem">
-        <span className="featuretitle">Conversion</span>
-
-        <div className="featurecontainer">
-          <span className="featuremoney">6.4%</span>
-
-          <span className="featurerate">
-            +1.1
-            <ArrowUpwardIcon className="featureicon" />
-          </span>
-        </div>
-
-        <span className="featuresub">Compared to last month</span>
-      </div>
-
-      {/* Expenses */}
-      <div className="featureitem">
-        <span className="featuretitle">Expenses</span>
-
-        <div className="featurecontainer">
-          <span className="featuremoney">$1,240</span>
-
-          <span className="featurerate">
-            -3.2
-            <ArrowDownwardIcon className="featureicon negative" />
-          </span>
-        </div>
-
-        <span className="featuresub">Compared to last month</span>
-      </div>
+            <span className="featureSub">Compared to last month</span>
+          </div>
+        );
+      })}
     </div>
   );
 }

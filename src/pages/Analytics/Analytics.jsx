@@ -6,19 +6,25 @@ import TrafficChart from "../../components/TrafficChart/TrafficChart";
 
 export default function Analytics() {
   return (
-    <div className="analytics">
+    <main className="analytics">
       <div className="analyticsHeader">
-        <div>
+        <div className="analyticsHeaderContent">
           <h1>Analytics Dashboard</h1>
+
           <p>Monitor your business performance and track real-time insights.</p>
         </div>
 
-        <button className="downloadBtn">Export Report</button>
+        <button type="button" className="downloadBtn">
+          <span className="downloadIcon">↓</span>
+          Export Report
+        </button>
       </div>
 
-      <AnalyticsCards />
+      <section className="analyticsCardsSection">
+        <AnalyticsCards />
+      </section>
 
-      <div className="analyticsGrid">
+      <section className="analyticsGrid">
         <div className="largeCard">
           <RevenueChart />
         </div>
@@ -26,7 +32,7 @@ export default function Analytics() {
         <div className="smallCard">
           <TrafficChart />
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }

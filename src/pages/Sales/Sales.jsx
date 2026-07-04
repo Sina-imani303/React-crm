@@ -61,6 +61,15 @@ function Sales() {
 
   return (
     <div className="sales">
+      <div className="salesHeader">
+        <div>
+          <h1>Sales Overview</h1>
+          <p>Monitor your sales performance and revenue insights.</p>
+        </div>
+
+        <button className="salesExportBtn">Export Report</button>
+      </div>
+
       <div className="salesCards">
         {cards.map((card, index) => (
           <div className="salesCard" key={index}>
@@ -77,39 +86,44 @@ function Sales() {
         ))}
       </div>
 
-      {/* Monthly Chart */}
-      <SalesChart />
+      <div className="salesChartWrapper">
+        <SalesChart />
+      </div>
 
-      {/* Bottom Section */}
       <div className="salesBottom">
         <div className="topProductWrapper">
           <TopProduct />
         </div>
 
         <div className="categoryCard">
-          <h2>Sales by Category</h2>
+          <div className="categoryHeader">
+            <h2>Sales by Category</h2>
+            <p>Product sales distribution</p>
+          </div>
 
-          <ResponsiveContainer width="100%" height={320}>
-            <PieChart>
-              <Pie
-                data={categoryData}
-                dataKey="value"
-                nameKey="name"
-                cx="50%"
-                cy="50%"
-                outerRadius={95}
-                innerRadius={55}
-                label
-              >
-                {categoryData.map((item, index) => (
-                  <Cell key={index} fill={COLORS[index]} />
-                ))}
-              </Pie>
+          <div className="categoryChart">
+            <ResponsiveContainer width="100%" height="100%">
+              <PieChart>
+                <Pie
+                  data={categoryData}
+                  dataKey="value"
+                  nameKey="name"
+                  cx="50%"
+                  cy="45%"
+                  outerRadius="62%"
+                  innerRadius="38%"
+                  paddingAngle={4}
+                >
+                  {categoryData.map((item, index) => (
+                    <Cell key={item.name} fill={COLORS[index]} />
+                  ))}
+                </Pie>
 
-              <Tooltip />
-              <Legend />
-            </PieChart>
-          </ResponsiveContainer>
+                <Tooltip />
+                <Legend />
+              </PieChart>
+            </ResponsiveContainer>
+          </div>
         </div>
       </div>
     </div>

@@ -1,32 +1,137 @@
 .salesChart {
-  background: #fff;
+  width: 100%;
+  min-width: 0;
   margin-top: 30px;
   padding: 25px;
+  overflow: hidden;
+  background: #fff;
   border-radius: 18px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
 }
 
 .salesChartHeader {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 25px;
 }
 
 .salesChartHeader h3 {
+  margin: 0;
+  color: #111827;
   font-size: 24px;
+  font-weight: 700;
 }
 
 .salesChartHeader p {
-  color: #777;
-  margin-top: 5px;
+  margin: 6px 0 0;
+  color: #6b7280;
+  font-size: 14px;
 }
 
 .salesChartHeader button {
+  flex-shrink: 0;
+  padding: 11px 20px;
   border: none;
+  border-radius: 10px;
   background: #4f46e5;
   color: #fff;
-  padding: 10px 20px;
-  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
   cursor: pointer;
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.salesChartHeader button:hover {
+  background: #4338ca;
+  transform: translateY(-2px);
+}
+
+.salesChartContainer {
+  width: 100%;
+  min-width: 0;
+  height: 350px;
+}
+
+@media screen and (max-width: 1200px) {
+  .salesChartContainer {
+    height: 330px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .salesChart {
+    padding: 22px;
+  }
+
+  .salesChartContainer {
+    height: 310px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .salesChart {
+    margin-top: 24px;
+    padding: 20px;
+  }
+
+  .salesChartHeader h3 {
+    font-size: 21px;
+  }
+
+  .salesChartHeader p {
+    font-size: 13px;
+  }
+
+  .salesChartHeader button {
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+
+  .salesChartContainer {
+    height: 290px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .salesChart {
+    padding: 18px 12px;
+    border-radius: 15px;
+  }
+
+  .salesChartHeader {
+    align-items: flex-start;
+    padding: 0 6px;
+  }
+
+  .salesChartContainer {
+    height: 270px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .salesChartHeader {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .salesChartHeader h3 {
+    font-size: 19px;
+  }
+
+  .salesChartHeader p {
+    font-size: 12px;
+  }
+
+  .salesChartHeader button {
+    width: 100%;
+  }
+
+  .salesChartContainer {
+    height: 250px;
+  }
 }

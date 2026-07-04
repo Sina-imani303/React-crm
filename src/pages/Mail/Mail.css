@@ -1,437 +1,630 @@
 .mail {
   flex: 4;
-  padding: 30px;
-  background: #f8fafc;
+  min-width: 0;
+  width: 100%;
   min-height: 100vh;
+  padding: 30px;
+  overflow-x: hidden;
+  background: #f8fafc;
 }
 
 .mailHeader {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  gap: 24px;
   margin-bottom: 30px;
 }
 
+.mailHeaderContent {
+  min-width: 0;
+}
+
 .mailHeader h1 {
-  font-size: 34px;
+  margin: 0;
   color: #111827;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
 .mailHeader p {
+  margin: 8px 0 0;
   color: #6b7280;
-  margin-top: 8px;
+  font-size: 16px;
+  line-height: 1.6;
 }
 
 .composeBtn {
   display: flex;
+  flex-shrink: 0;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-
-  border: none;
-
-  background: #2563eb;
-
-  color: white;
-
+  min-height: 48px;
   padding: 14px 24px;
-
+  border: none;
   border-radius: 12px;
-
-  cursor: pointer;
-
+  background: #2563eb;
+  color: white;
+  font-family: inherit;
   font-weight: 600;
-
-  transition: 0.3s;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .composeBtn:hover {
   background: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(37, 99, 235, 0.25);
 }
+
 .mailSearch {
-  background: white;
-
   display: flex;
-
   align-items: center;
-
-  padding: 15px 20px;
-
-  border-radius: 14px;
-
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-
+  gap: 15px;
+  width: 100%;
   margin-bottom: 25px;
+  padding: 15px 20px;
+  border: 1px solid #eef2f7;
+  border-radius: 14px;
+  background: white;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.mailSearch svg {
+  flex-shrink: 0;
+  color: #9ca3af;
 }
 
 .mailSearch input {
-  border: none;
-
-  outline: none;
-
-  margin-left: 15px;
-
   width: 100%;
-
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: inherit;
   font-size: 15px;
 }
 
 .mailCards {
   display: grid;
-
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 20px;
+  width: 100%;
 }
 
 .mailCard {
-  background: white;
-
-  border-radius: 18px;
-
-  padding: 22px;
-
   display: flex;
-
+  min-width: 0;
   align-items: center;
-
   gap: 18px;
+  padding: 22px;
+  border: 1px solid #eef2f7;
+  border-radius: 18px;
+  background: white;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
 
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+.mailCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.1);
 }
 
 .mailIcon {
-  width: 60px;
-
-  height: 60px;
-
-  border-radius: 15px;
-
   display: flex;
-
-  justify-content: center;
-
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
   align-items: center;
+  justify-content: center;
+  border-radius: 15px;
 }
 
 .mailIcon svg {
   color: white;
+  font-size: 28px;
+}
+
+.mailCardInfo {
+  min-width: 0;
 }
 
 .mailCard span {
   color: #6b7280;
+  font-size: 14px;
 }
 
 .mailCard h2 {
-  margin-top: 8px;
+  margin: 8px 0 0;
+  color: #111827;
+  font-size: 28px;
 }
+
 .mailContent {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
   gap: 25px;
+  width: 100%;
   margin-top: 30px;
 }
 
 .inbox,
 .mailPreview {
-  background: #fff;
-  border-radius: 18px;
+  min-width: 0;
   padding: 25px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #eef2f7;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
 }
 
 .inbox h2,
 .mailPreview h2 {
-  margin-bottom: 20px;
+  margin: 0 0 20px;
+  color: #111827;
+}
+
+.inboxList {
+  width: 100%;
 }
 
 .mailItem {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 15px;
+  width: 100%;
   padding: 15px 0;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #eeeeee;
   cursor: pointer;
-  transition: 0.3s;
+  transition:
+    background-color 0.3s ease,
+    padding 0.3s ease;
+}
+
+.mailItem:last-child {
+  border-bottom: none;
 }
 
 .mailItem:hover {
-  background: #f8fafc;
-  border-radius: 10px;
   padding-left: 10px;
+  border-radius: 10px;
+  background: #f8fafc;
 }
 
 .avatar {
+  display: flex;
   width: 48px;
   height: 48px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
   border-radius: 50%;
   background: #2563eb;
   color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
   font-size: 18px;
+  font-weight: 700;
 }
 
 .mailInfo {
+  min-width: 0;
   flex: 1;
-  margin-left: 15px;
 }
 
 .mailInfo h4 {
-  margin-bottom: 5px;
+  margin: 0 0 5px;
+  color: #111827;
 }
 
 .mailInfo span {
-  color: #777;
+  display: block;
+  overflow: hidden;
+  color: #777777;
   font-size: 14px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .mailTime {
   display: flex;
+  flex-shrink: 0;
   flex-direction: column;
   align-items: center;
+}
+
+.mailTime small {
+  color: #6b7280;
+  white-space: nowrap;
 }
 
 .badge {
   width: 10px;
   height: 10px;
+  margin-top: 8px;
   border-radius: 50%;
   background: #2563eb;
-  margin-top: 8px;
 }
 
 .previewCard h3 {
-  margin-bottom: 10px;
+  margin: 0 0 10px;
+  color: #111827;
 }
 
 .previewCard span {
-  color: #777;
+  color: #777777;
 }
 
 .previewCard p {
   margin: 25px 0;
+  color: #444444;
   line-height: 1.8;
-  color: #444;
 }
 
 .previewCard button {
+  padding: 12px 24px;
   border: none;
+  border-radius: 10px;
   background: #2563eb;
   color: white;
-  padding: 12px 24px;
-  border-radius: 10px;
+  font-family: inherit;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-@media (max-width: 992px) {
-  .mailContent {
-    grid-template-columns: 1fr;
-  }
+.previewCard button:hover {
+  background: #1d4ed8;
 }
+
 .mailBottom {
   display: grid;
-
-  grid-template-columns: 300px 1fr;
-
+  grid-template-columns: minmax(240px, 300px) minmax(0, 1fr);
   gap: 25px;
-
+  width: 100%;
   margin-top: 30px;
 }
 
 .labelCard,
 .activityCard {
-  background: white;
-
+  min-width: 0;
   padding: 25px;
-
+  border: 1px solid #eef2f7;
   border-radius: 18px;
-
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  background: white;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
 }
 
 .labelCard h2,
 .activityCard h2 {
-  margin-bottom: 20px;
+  margin: 0 0 20px;
 }
 
 .labelItem {
   display: flex;
-
   align-items: center;
-
   gap: 10px;
-
   margin-bottom: 18px;
-
   font-weight: 500;
+}
+
+.labelItem:last-child {
+  margin-bottom: 0;
 }
 
 .activityItem {
   display: flex;
-
   gap: 15px;
-
   padding: 15px 0;
-
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #eeeeee;
 }
 
 .activityItem:last-child {
-  border: none;
+  border-bottom: none;
 }
 
 .activityIcon {
+  flex-shrink: 0;
   color: #2563eb;
 }
 
 .activityItem h4 {
-  margin-bottom: 5px;
+  margin: 0 0 5px;
 }
 
 .activityItem span {
-  color: #777;
-
+  color: #777777;
   font-size: 14px;
+  line-height: 1.5;
 }
 
-@media (max-width: 992px) {
-  .mailBottom {
-    grid-template-columns: 1fr;
-  }
-}
 .composeOverlay {
   position: fixed;
-
-  inset: 0;
-
-  background: rgba(0, 0, 0, 0.45);
-
-  display: flex;
-
-  justify-content: center;
-
-  align-items: center;
-
   z-index: 999;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.45);
 }
 
 .composeModal {
-  width: 700px;
-
-  background: white;
-
+  width: min(700px, 100%);
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
   border-radius: 20px;
-
-  overflow: hidden;
-
+  background: white;
   box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
-
-  animation: popup 0.35s;
+  animation: popup 0.35s ease;
 }
 
 @keyframes popup {
   from {
     opacity: 0;
-
-    transform: scale(0.8);
+    transform: scale(0.9) translateY(20px);
   }
 
   to {
     opacity: 1;
-
-    transform: scale(1);
+    transform: scale(1) translateY(0);
   }
 }
 
 .composeHeader {
-  padding: 20px 25px;
-
   display: flex;
-
-  justify-content: space-between;
-
   align-items: center;
-
+  justify-content: space-between;
+  padding: 20px 25px;
   background: #2563eb;
-
   color: white;
 }
 
-.closeIcon {
+.composeHeader h2 {
+  margin: 0;
+}
+
+.closeBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  border: none;
+  background: transparent;
+  color: white;
   cursor: pointer;
 }
 
 .composeBody {
-  padding: 25px;
-
   display: flex;
-
   flex-direction: column;
-
   gap: 18px;
+  padding: 25px;
 }
 
-.composeBody input {
+.composeBody input,
+.composeBody textarea {
+  width: 100%;
   padding: 14px;
-
-  border: 1px solid #ddd;
-
+  border: 1px solid #dddddd;
   border-radius: 10px;
-
   outline: none;
+  font-family: inherit;
+  font-size: 14px;
+  transition: border-color 0.2s ease;
+}
+
+.composeBody input:focus,
+.composeBody textarea:focus {
+  border-color: #2563eb;
 }
 
 .composeBody textarea {
-  resize: none;
-
-  padding: 15px;
-
-  border: 1px solid #ddd;
-
-  border-radius: 10px;
-
-  outline: none;
-
-  font-family: inherit;
+  resize: vertical;
 }
 
 .composeFooter {
   display: flex;
-
   justify-content: flex-end;
-
   gap: 15px;
 }
 
-.cancelBtn {
+.cancelBtn,
+.sendBtn {
+  min-height: 44px;
   padding: 12px 22px;
-
   border: none;
-
-  background: #e5e7eb;
-
   border-radius: 10px;
-
+  font-family: inherit;
   cursor: pointer;
+}
+
+.cancelBtn {
+  background: #e5e7eb;
+  color: #111827;
 }
 
 .sendBtn {
   display: flex;
-
   align-items: center;
-
+  justify-content: center;
   gap: 8px;
-
-  padding: 12px 22px;
-
-  border: none;
-
   background: #2563eb;
-
   color: white;
+}
 
-  border-radius: 10px;
+@media screen and (max-width: 1200px) {
+  .mail {
+    padding: 22px;
+  }
 
-  cursor: pointer;
+  .mailCards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .mail {
+    padding: 20px;
+  }
+
+  .mailContent {
+    grid-template-columns: 1fr;
+  }
+
+  .mailBottom {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .mail {
+    flex: none;
+    width: 100%;
+    padding: 16px;
+  }
+
+  .mailHeader {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+    margin-bottom: 24px;
+  }
+
+  .mailHeader h1 {
+    font-size: 26px;
+  }
+
+  .mailHeader p {
+    font-size: 14px;
+  }
+
+  .composeBtn {
+    width: fit-content;
+  }
+
+  .mailCards {
+    gap: 16px;
+  }
+
+  .mailContent,
+  .mailBottom {
+    gap: 16px;
+    margin-top: 20px;
+  }
+
+  .inbox,
+  .mailPreview,
+  .labelCard,
+  .activityCard {
+    padding: 18px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .mailCards {
+    grid-template-columns: 1fr;
+  }
+
+  .mailItem {
+    align-items: flex-start;
+  }
+
+  .mailInfo span {
+    max-width: 180px;
+  }
+
+  .composeFooter {
+    flex-direction: column-reverse;
+  }
+
+  .cancelBtn,
+  .sendBtn {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .mail {
+    padding: 12px;
+  }
+
+  .mailHeader {
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+
+  .mailHeader h1 {
+    font-size: 22px;
+  }
+
+  .mailHeader p {
+    font-size: 13px;
+  }
+
+  .composeBtn {
+    width: 100%;
+  }
+
+  .mailSearch {
+    padding: 13px 15px;
+  }
+
+  .mailCard {
+    padding: 18px;
+  }
+
+  .mailIcon {
+    width: 52px;
+    height: 52px;
+  }
+
+  .mailIcon svg {
+    font-size: 24px;
+  }
+
+  .inbox,
+  .mailPreview,
+  .labelCard,
+  .activityCard {
+    padding: 16px;
+    border-radius: 14px;
+  }
+
+  .avatar {
+    width: 42px;
+    height: 42px;
+    font-size: 16px;
+  }
+
+  .mailInfo span {
+    max-width: 130px;
+  }
+
+  .mailTime small {
+    font-size: 11px;
+  }
+
+  .composeOverlay {
+    align-items: flex-end;
+    padding: 10px;
+  }
+
+  .composeModal {
+    max-height: calc(100vh - 20px);
+    border-radius: 18px;
+  }
+
+  .composeHeader {
+    padding: 16px 18px;
+  }
+
+  .composeBody {
+    gap: 14px;
+    padding: 18px;
+  }
 }

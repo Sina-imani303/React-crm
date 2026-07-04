@@ -1,9 +1,10 @@
-import React from "react";
 import "./SideBar.css";
+
 import LineStyleIcon from "@mui/icons-material/LineStyle";
 import TimelineIcon from "@mui/icons-material/Timeline";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
+import PersonAddAltOutlinedIcon from "@mui/icons-material/PersonAddAltOutlined";
 import StorefrontIcon from "@mui/icons-material/Storefront";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
@@ -11,100 +12,116 @@ import BarChartIcon from "@mui/icons-material/BarChart";
 import DynamicFeedIcon from "@mui/icons-material/DynamicFeed";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
 export default function SideBar() {
+  const getLinkClass = ({ isActive }) =>
+    isActive ? "sidebarlink active" : "sidebarlink";
+
   return (
-    <div className="sidebar">
+    <aside className="sidebar">
       <div className="sidewrapper">
         <div className="sidebarmenu">
-          <h3 className="sidebartitle">DashBoard</h3>
+          <h3 className="sidebartitle">Dashboard</h3>
+
           <ul className="sidebarlist">
-            <Link to="/home" className="link">
-              <li className="sidebaritem active">
+            <li>
+              <NavLink to="/home" className={getLinkClass}>
                 <LineStyleIcon className="sidebaricon" />
-                Home
-              </li>
-            </Link>
-            <Link to="/Analytics" className="link">
-              <li className="sidebaritem">
+                <span>Home</span>
+              </NavLink>
+            </li>
+
+            <li>
+              <NavLink to="/Analytics" className={getLinkClass}>
                 <TimelineIcon className="sidebaricon" />
-                Analytics
-              </li>
-            </Link>
-            <Link to="/sales" className="link">
-              <li className="sidebaritem">
+                <span>Analytics</span>
+              </NavLink>
+            </li>
+
+            <li>
+              <NavLink to="/sales" className={getLinkClass}>
                 <TrendingUpIcon className="sidebaricon" />
-                Sales
-              </li>
-            </Link>
+                <span>Sales</span>
+              </NavLink>
+            </li>
           </ul>
         </div>
 
         <div className="sidebarmenu">
           <h3 className="sidebartitle">Quick Menu</h3>
+
           <ul className="sidebarlist">
-            <Link to="/user" className="link">
-              <li className="sidebaritem ">
+            <li>
+              <NavLink to="/user" className={getLinkClass}>
                 <PermIdentityIcon className="sidebaricon" />
-                Users
-              </li>
-            </Link>
-            <Link to="/newuser" className="link">
-              <li className="sidebaritem">
+                <span>Users</span>
+              </NavLink>
+            </li>
+
+            <li>
+              <NavLink to="/newuser" className={getLinkClass}>
+                <PersonAddAltOutlinedIcon className="sidebaricon" />
+                <span>New User</span>
+              </NavLink>
+            </li>
+
+            <li>
+              <NavLink to="/products" className={getLinkClass}>
                 <StorefrontIcon className="sidebaricon" />
-                New User
-              </li>
-            </Link>
-            <Link to="/products" className="link">
-              <li className="sidebaritem">
-                <MailOutlineIcon className="sidebaricon" />
-                products
-              </li>
-            </Link>
-            <Link to="/transaction" className="link">
-              <li className="sidebaritem">
+                <span>Products</span>
+              </NavLink>
+            </li>
+
+            <li>
+              <NavLink to="/transaction" className={getLinkClass}>
                 <AttachMoneyIcon className="sidebaricon" />
-                Transactions
-              </li>
-            </Link>
-            <Link to="/reports" className="link">
-              <li className="sidebaritem">
+                <span>Transactions</span>
+              </NavLink>
+            </li>
+
+            <li>
+              <NavLink to="/reports" className={getLinkClass}>
                 <BarChartIcon className="sidebaricon" />
-                Reports
-              </li>
-            </Link>
+                <span>Reports</span>
+              </NavLink>
+            </li>
           </ul>
         </div>
 
         <div className="sidebarmenu">
           <h3 className="sidebartitle">Notification</h3>
+
           <ul className="sidebarlist">
-            <Link to="/mail" className="link">
-              <li className="sidebaritem">
+            <li>
+              <NavLink to="/mail" className={getLinkClass}>
                 <MailOutlineIcon className="sidebaricon" />
-                Mail
-              </li>
-            </Link>
-            <Link to="/feedback" className="link">
-              <li className="sidebaritem">
+                <span>Mail</span>
+              </NavLink>
+            </li>
+
+            <li>
+              <NavLink to="/feedback" className={getLinkClass}>
                 <DynamicFeedIcon className="sidebaricon" />
-                Feedback
-              </li>
-            </Link>
+                <span>Feedback</span>
+              </NavLink>
+            </li>
           </ul>
         </div>
+
         <div className="sidebarmenu">
           <h3 className="sidebartitle">Staff</h3>
+
           <ul className="sidebarlist">
-            <Link to="/manage" className="link">
-              <li className="sidebaritem ">
+            <li>
+              <NavLink to="/manage" className={getLinkClass}>
                 <ChatBubbleOutlineIcon className="sidebaricon" />
-                Manage
-              </li>
-            </Link>
+                <span>Manage</span>
+              </NavLink>
+            </li>
           </ul>
         </div>
       </div>
-    </div>
+    </aside>
   );
 }

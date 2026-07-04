@@ -39,8 +39,8 @@ export default function AnalyticsCards() {
 
   return (
     <div className="analyticsCards">
-      {cards.map((card, index) => (
-        <div className="analyticsCard" key={index}>
+      {cards.map((card) => (
+        <div className="analyticsCard" key={card.title}>
           <div
             className="analyticsIcon"
             style={{ backgroundColor: card.color }}
@@ -51,7 +51,6 @@ export default function AnalyticsCards() {
           <div className="analyticsContent">
             <span>{card.title}</span>
             <h2>{card.value}</h2>
-
             <small>{card.change} this month</small>
           </div>
         </div>

@@ -4,9 +4,11 @@ import GroupsOutlinedIcon from "@mui/icons-material/GroupsOutlined";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import BeachAccessOutlinedIcon from "@mui/icons-material/BeachAccessOutlined";
 import WorkspacePremiumOutlinedIcon from "@mui/icons-material/WorkspacePremiumOutlined";
-import { DataGrid } from "@mui/x-data-grid";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
+import AddIcon from "@mui/icons-material/Add";
+import { DataGrid } from "@mui/x-data-grid";
+
 export default function Manage() {
   const cards = [
     {
@@ -15,21 +17,18 @@ export default function Manage() {
       color: "#2563eb",
       icon: <GroupsOutlinedIcon />,
     },
-
     {
       title: "Active",
       value: "112",
       color: "#16a34a",
       icon: <PersonOutlineOutlinedIcon />,
     },
-
     {
       title: "On Leave",
       value: "9",
       color: "#f59e0b",
       icon: <BeachAccessOutlinedIcon />,
     },
-
     {
       title: "Managers",
       value: "7",
@@ -37,6 +36,7 @@ export default function Manage() {
       icon: <WorkspacePremiumOutlinedIcon />,
     },
   ];
+
   const rows = [
     {
       id: 1,
@@ -84,107 +84,131 @@ export default function Manage() {
       email: "alex@gmail.com",
     },
   ];
+
   const columns = [
     {
       field: "avatar",
       headerName: "",
       width: 80,
+      sortable: false,
+      filterable: false,
       renderCell: (params) => (
         <div className="employeeAvatar">{params.row.avatar}</div>
       ),
     },
-
     {
       field: "name",
       headerName: "Employee",
-      width: 190,
+      minWidth: 170,
+      flex: 1,
     },
-
     {
       field: "role",
       headerName: "Role",
-      width: 170,
+      minWidth: 150,
+      flex: 1,
     },
-
     {
       field: "department",
       headerName: "Department",
-      width: 160,
+      minWidth: 140,
+      flex: 1,
     },
-
     {
       field: "status",
       headerName: "Status",
-      width: 140,
+      minWidth: 140,
       renderCell: (params) => (
         <span
           className={`employeeStatus ${params.row.status
-            .replace(" ", "")
+            .replace(/\s+/g, "")
             .toLowerCase()}`}
         >
           {params.row.status}
         </span>
       ),
     },
-
     {
       field: "email",
       headerName: "Email",
-      width: 240,
+      minWidth: 210,
+      flex: 1.2,
     },
-
     {
       field: "action",
       headerName: "Action",
-      width: 130,
+      width: 120,
+      sortable: false,
+      filterable: false,
       renderCell: () => (
         <div className="actionButtons">
-          <EditOutlinedIcon className="editIcon" />
-          <DeleteOutlineOutlinedIcon className="deleteIcon" />
+          <button type="button" className="actionBtn editBtn">
+            <EditOutlinedIcon className="editIcon" />
+          </button>
+
+          <button type="button" className="actionBtn deleteBtn">
+            <DeleteOutlineOutlinedIcon className="deleteIcon" />
+          </button>
         </div>
       ),
     },
   ];
 
   return (
-    <div className="manage">
+    <main className="manage">
       <div className="manageHeader">
-        <div>
+        <div className="manageHeaderContent">
           <h1>Manage Staff</h1>
-
           <p>Monitor employees and manage your team.</p>
         </div>
 
-        <button>Add Employee</button>
+        <button type="button" className="addEmployeeBtn">
+          <AddIcon />
+          <span>Add Employee</span>
+        </button>
       </div>
 
-      <div className="manageCards">
+      <section className="manageCards">
         {cards.map((item, index) => (
           <div className="manageCard" key={index}>
-            <div className="manageIcon" style={{ background: item.color }}>
+            <div className="manageIcon" style={{ backgroundColor: item.color }}>
               {item.icon}
             </div>
 
-            <div>
+            <div className="manageCardInfo">
               <span>{item.title}</span>
-
               <h2>{item.value}</h2>
             </div>
           </div>
         ))}
-      </div>
-      <div className="employeeTable">
-        <h2>Team Members</h2>
+      </section>
 
-        <DataGrid
-          rows={rows}
-          columns={columns}
-          pageSize={5}
-          rowsPerPageOptions={[5]}
-          disableRowSelectionOnClick
-          autoHeight
-        />
-      </div>
-    </div>
+      <section className="employeeTable">
+        <div className="employeeTableHeader">
+          <div>
+            <h2>Team Members</h2>
+            <p>View and manage all employees in your organization.</p>
+          </div>
+        </div>
+
+        <div className="dataGridWrapper">
+          <DataGrid
+            rows={rows}
+            columns={columns}
+            initialState={{
+              pagination: {
+                paginationModel: {
+                  pageSize: 5,
+                  page: 0,
+                },
+              },
+            }}
+            pageSizeOptions={[5]}
+            disableRowSelectionOnClick
+            autoHeight
+          />
+        </div>
+      </section>
+    </main>
   );
 }

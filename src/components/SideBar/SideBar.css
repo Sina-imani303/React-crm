@@ -1,43 +1,234 @@
-.sidebar{
-    flex: 1;
-    height: calc(100vh - 50px);
-    background-color: rgb(251, 251, 255);
-    position: sticky;
-    top: 50px;
-
-
+.sidebar {
+  flex: 0 0 260px;
+  width: 260px;
+  height: calc(100vh - 50px);
+  position: sticky;
+  top: 50px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: #ffffff;
+  border-right: 1px solid #e5e7eb;
+  box-sizing: border-box;
 }
-.sidewrapper{
-    padding: 20px;
-    color: #555;
-    
 
+.sidewrapper {
+  width: 100%;
+  padding: 24px 16px;
+  color: #4b5563;
+  box-sizing: border-box;
 }
-.sidebarmenu{
-    margin-bottom:10px;
 
+.sidebarmenu {
+  margin-bottom: 24px;
 }
-.sidebartitle{
-    font-size: 13px;
-    color: rgb(187, 186, 186);
-}
-.sidebarlist{
-    list-style: none;
-    padding: 5px;
 
+.sidebarmenu:last-child {
+  margin-bottom: 0;
 }
-.sidebaritem{
-    padding: 5px;
-    cursor: pointer;
+
+.sidebartitle {
+  margin: 0 0 10px;
+  padding: 0 12px;
+  color: #9ca3af;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.sidebarlist {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sidebarlist li {
+  width: 100%;
+}
+
+.sidebarlink {
+  width: 100%;
+  min-height: 46px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 13px;
+  border-radius: 12px;
+  color: #4b5563;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  box-sizing: border-box;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.sidebarlink:hover {
+  color: #2563eb;
+  background: #eff6ff;
+  transform: translateX(3px);
+}
+
+.sidebarlink.active {
+  color: #2563eb;
+  background: #dbeafe;
+  font-weight: 600;
+}
+
+.sidebaricon {
+  flex-shrink: 0;
+  font-size: 21px !important;
+}
+
+.sidebarlink span {
+  white-space: nowrap;
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 20px;
+}
+
+@media screen and (max-width: 1200px) {
+  .sidebar {
+    flex-basis: 220px;
+    width: 220px;
+  }
+
+  .sidewrapper {
+    padding: 22px 12px;
+  }
+
+  .sidebarlink {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .sidebar {
+    flex: 0 0 82px;
+    width: 82px;
+  }
+
+  .sidewrapper {
+    padding: 20px 10px;
+  }
+
+  .sidebarmenu {
+    margin-bottom: 20px;
+  }
+
+  .sidebartitle {
+    display: none;
+  }
+
+  .sidebarlist {
+    gap: 8px;
+  }
+
+  .sidebarlink {
+    min-height: 48px;
+    justify-content: center;
+    padding: 12px;
+  }
+
+  .sidebarlink span {
+    display: none;
+  }
+
+  .sidebaricon {
+    margin: 0 !important;
+    font-size: 23px !important;
+  }
+
+  .sidebarlink:hover {
+    transform: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    top: auto;
+    z-index: 999;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+    border-top: 1px solid #e5e7eb;
+    border-right: none;
+    box-shadow: 0 -8px 25px rgba(0, 0, 0, 0.08);
+  }
+
+  .sidewrapper {
+    padding: 8px 10px;
+  }
+
+  .sidebarmenu {
+    display: contents;
+  }
+
+  .sidebartitle {
+    display: none;
+  }
+
+  .sidebarlist {
+    display: contents;
+  }
+
+  .sidebar {
+    display: flex;
+  }
+
+  .sidewrapper {
     display: flex;
     align-items: center;
-    border-radius: 10px;
+    justify-content: space-around;
+  }
+
+  .sidebarlist li {
+    width: auto;
+  }
+
+  .sidebarlink {
+    width: 48px;
+    min-height: 48px;
+    padding: 10px;
+    border-radius: 12px;
+  }
+
+  .sidebarlink span {
+    display: none;
+  }
 }
 
-.sidebaritem.active, .sidebaritem:hover{
- background-color:rgb(240, 240, 255) ;
-}
-.sidebaricon{
-    margin-right: 5px;
-    font-size: 20px;
+@media screen and (max-width: 600px) {
+  .sidewrapper {
+    overflow-x: auto;
+    justify-content: flex-start;
+    gap: 6px;
+  }
+
+  .sidewrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sidebarlink {
+    flex-shrink: 0;
+  }
 }

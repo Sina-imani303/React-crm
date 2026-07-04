@@ -37,26 +37,70 @@ export default function RevenueChart() {
         <div className="revenueBadge">+18.4%</div>
       </div>
 
-      <ResponsiveContainer width="100%" height={350}>
-        <LineChart data={data}>
-          <CartesianGrid stroke="#f1f5f9" vertical={false} />
+      <div className="revenueChartContainer">
+        <ResponsiveContainer width="100%" height="100%">
+          <LineChart
+            data={data}
+            margin={{
+              top: 10,
+              right: 15,
+              left: 0,
+              bottom: 0,
+            }}
+          >
+            <CartesianGrid
+              stroke="#f1f5f9"
+              strokeDasharray="5 5"
+              vertical={false}
+            />
 
-          <XAxis dataKey="month" tickLine={false} axisLine={false} />
+            <XAxis
+              dataKey="month"
+              tickLine={false}
+              axisLine={false}
+              tick={{
+                fill: "#6b7280",
+                fontSize: 13,
+              }}
+            />
 
-          <YAxis tickLine={false} axisLine={false} />
+            <YAxis
+              tickLine={false}
+              axisLine={false}
+              width={45}
+              tick={{
+                fill: "#6b7280",
+                fontSize: 13,
+              }}
+            />
 
-          <Tooltip />
+            <Tooltip
+              contentStyle={{
+                border: "none",
+                borderRadius: "12px",
+                boxShadow: "0 10px 30px rgba(0, 0, 0, 0.12)",
+              }}
+            />
 
-          <Line
-            type="monotone"
-            dataKey="revenue"
-            stroke="#2563eb"
-            strokeWidth={4}
-            dot={{ r: 4 }}
-            activeDot={{ r: 7 }}
-          />
-        </LineChart>
-      </ResponsiveContainer>
+            <Line
+              type="monotone"
+              dataKey="revenue"
+              stroke="#2563eb"
+              strokeWidth={4}
+              dot={{
+                r: 4,
+                fill: "#2563eb",
+                strokeWidth: 0,
+              }}
+              activeDot={{
+                r: 7,
+                fill: "#2563eb",
+                strokeWidth: 0,
+              }}
+            />
+          </LineChart>
+        </ResponsiveContainer>
+      </div>
     </div>
   );
 }

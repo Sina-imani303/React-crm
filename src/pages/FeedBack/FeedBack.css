@@ -1,102 +1,361 @@
 .feedback {
   flex: 4;
-  padding: 30px;
-  background: #f8fafc;
+  min-width: 0;
+  width: 100%;
   min-height: 100vh;
+  padding: 30px;
+  overflow-x: hidden;
+  background-color: #f8fafc;
 }
 
 .feedbackHeader {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  gap: 24px;
   margin-bottom: 30px;
 }
 
-.feedbackHeader button {
-  background: #2563eb;
-  color: white;
-  border: none;
+.feedbackHeaderContent {
+  min-width: 0;
+}
+
+.feedbackHeader h1 {
+  margin: 0;
+  color: #111827;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.feedbackHeader p {
+  margin: 8px 0 0;
+  color: #6b7280;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.addReviewBtn {
+  flex-shrink: 0;
+  min-height: 46px;
   padding: 12px 22px;
+  border: none;
   border-radius: 10px;
+  background-color: #2563eb;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
   cursor: pointer;
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.addReviewBtn:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(37, 99, 235, 0.25);
 }
 
 .feedbackCards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 20px;
+  width: 100%;
   margin-bottom: 30px;
 }
 
 .feedbackCard {
-  background: white;
-  padding: 22px;
   display: flex;
+  min-width: 0;
   align-items: center;
   gap: 20px;
+  padding: 22px;
+  border: 1px solid #eef2f7;
   border-radius: 18px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  background-color: #ffffff;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.feedbackCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.1);
 }
 
 .feedbackIcon {
+  display: flex;
   width: 60px;
   height: 60px;
-  border-radius: 15px;
-  display: flex;
-  justify-content: center;
+  flex-shrink: 0;
   align-items: center;
+  justify-content: center;
+  border-radius: 15px;
 }
 
-.feedbackIcon svg {
-  color: white;
-  font-size: 30px;
+.feedbackIcon span {
+  font-size: 28px;
+  line-height: 1;
+}
+
+.feedbackCardContent {
+  min-width: 0;
+}
+
+.feedbackCardContent span {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.feedbackCardContent h2 {
+  margin: 6px 0 0;
+  color: #111827;
+  font-size: 28px;
+  font-weight: 700;
 }
 
 .feedbackTable {
-  background: white;
+  width: 100%;
+  min-width: 0;
   padding: 25px;
+  border: 1px solid #eef2f7;
   border-radius: 18px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  background-color: #ffffff;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+}
+
+.feedbackTableTitle {
+  margin: 0 0 10px;
+  color: #111827;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.feedbackList {
+  width: 100%;
 }
 
 .feedbackItem {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 20px 0;
-  border-bottom: 1px solid #eee;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 22px 0;
+  border-bottom: 1px solid #eeeeee;
 }
 
 .feedbackItem:last-child {
-  border: none;
+  border-bottom: none;
+}
+
+.feedbackItemContent {
+  min-width: 0;
+  flex: 1;
+}
+
+.feedbackItem h3 {
+  margin: 0;
+  color: #111827;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.feedbackRate {
+  display: inline-block;
+  margin-top: 7px;
+  color: #f59e0b;
+  font-size: 16px;
+  letter-spacing: 2px;
 }
 
 .feedbackItem p {
+  max-width: 700px;
+  margin: 10px 0 0;
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.feedbackItemMeta {
+  display: flex;
+  min-width: 140px;
+  flex-shrink: 0;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.feedbackItemMeta h4 {
+  margin: 0;
+  color: #9ca3af;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.feedbackStatus {
   margin-top: 10px;
-  color: #666;
-  max-width: 600px;
-}
-
-.feedbackItem span {
-  color: #f59e0b;
-}
-
-.feedbackItem button {
-  border: none;
   padding: 8px 15px;
+  border: none;
   border-radius: 20px;
-  color: white;
-  margin-top: 10px;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
 }
-
+.feedbackIcon svg {
+  color: white;
+  font-size: 30px;
+}
 .positive {
-  background: #16a34a;
+  background-color: #16a34a;
 }
 
 .neutral {
-  background: #f59e0b;
+  background-color: #f59e0b;
 }
 
 .negative {
-  background: #ef4444;
+  background-color: #ef4444;
+}
+
+@media screen and (max-width: 1200px) {
+  .feedback {
+    padding: 22px;
+  }
+
+  .feedbackHeader h1 {
+    font-size: 30px;
+  }
+
+  .feedbackCards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .feedback {
+    padding: 20px;
+  }
+
+  .feedbackHeader h1 {
+    font-size: 28px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .feedback {
+    flex: none;
+    width: 100%;
+    padding: 16px;
+  }
+
+  .feedbackHeader {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+    margin-bottom: 24px;
+  }
+
+  .feedbackHeader h1 {
+    font-size: 25px;
+  }
+
+  .feedbackHeader p {
+    margin-top: 6px;
+    font-size: 14px;
+  }
+
+  .addReviewBtn {
+    width: fit-content;
+  }
+
+  .feedbackCards {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .feedbackTable {
+    padding: 18px;
+  }
+
+  .feedbackItem {
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  .feedbackItemMeta {
+    min-width: 120px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .feedback {
+    padding: 12px;
+  }
+
+  .feedbackHeader {
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+
+  .feedbackHeader h1 {
+    font-size: 22px;
+  }
+
+  .feedbackHeader p {
+    font-size: 13px;
+  }
+
+  .addReviewBtn {
+    width: 100%;
+  }
+
+  .feedbackCard {
+    gap: 15px;
+    padding: 18px;
+  }
+
+  .feedbackIcon {
+    width: 52px;
+    height: 52px;
+  }
+
+  .feedbackIcon span {
+    font-size: 24px;
+  }
+
+  .feedbackCardContent h2 {
+    font-size: 24px;
+  }
+
+  .feedbackTable {
+    padding: 16px;
+    border-radius: 14px;
+  }
+
+  .feedbackTableTitle {
+    font-size: 21px;
+  }
+
+  .feedbackItem {
+    flex-direction: column;
+    gap: 14px;
+    padding: 20px 0;
+  }
+
+  .feedbackItemMeta {
+    width: 100%;
+    min-width: 0;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .feedbackStatus {
+    margin-top: 0;
+  }
 }

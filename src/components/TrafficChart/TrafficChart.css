@@ -1,57 +1,181 @@
 .trafficChart {
   width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .trafficHeader {
-  margin-bottom: 20px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 15px;
 }
 
 .trafficHeader h3 {
-  font-size: 24px;
+  margin: 0;
   color: #111827;
+  font-size: 24px;
+  font-weight: 700;
 }
 
 .trafficHeader p {
-  margin-top: 5px;
+  margin: 6px 0 0;
   color: #6b7280;
+  font-size: 14px;
+}
+
+.trafficBadge {
+  flex-shrink: 0;
+  padding: 8px 14px;
+  border-radius: 20px;
+  background: #eff6ff;
+  color: #2563eb;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.trafficChartContainer {
+  position: relative;
+  width: 100%;
+  height: 280px;
+}
+
+.trafficCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+.trafficCenter strong {
+  color: #111827;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.trafficCenter span {
+  margin-top: 4px;
+  color: #9ca3af;
+  font-size: 11px;
 }
 
 .trafficStats {
-  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 10px;
 }
 
 .trafficItem {
+  min-width: 0;
+  padding: 14px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 15px;
-  font-size: 15px;
+  justify-content: space-between;
+  gap: 10px;
+  background: #f8fafc;
+  border-radius: 12px;
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
 }
 
-.trafficItem p {
-  flex: 1;
-  margin-left: 10px;
-  color: #374151;
+.trafficItem:hover {
+  background: #f1f5f9;
+  transform: translateY(-2px);
 }
 
-.dot {
-  width: 12px;
-  height: 12px;
+.trafficName {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.trafficDot {
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
   border-radius: 50%;
 }
 
-.blue {
-  background: #2563eb;
+.trafficName p {
+  margin: 0;
+  overflow: hidden;
+  color: #374151;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
-.green {
-  background: #22c55e;
+.trafficItem strong {
+  flex-shrink: 0;
+  color: #111827;
+  font-size: 14px;
+  font-weight: 700;
 }
 
-.orange {
-  background: #f59e0b;
+@media screen and (max-width: 1200px) {
+  .trafficChartContainer {
+    height: 260px;
+  }
 }
 
-.pink {
-  background: #ec4899;
+@media screen and (max-width: 992px) {
+  .trafficChartContainer {
+    height: 300px;
+  }
+
+  .trafficStats {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .trafficHeader h3 {
+    font-size: 21px;
+  }
+
+  .trafficChartContainer {
+    height: 270px;
+  }
+
+  .trafficStats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .trafficHeader {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .trafficBadge {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  .trafficChartContainer {
+    height: 240px;
+  }
+
+  .trafficCenter strong {
+    font-size: 21px;
+  }
+
+  .trafficStats {
+    grid-template-columns: 1fr;
+  }
+
+  .trafficItem {
+    padding: 12px;
+  }
 }

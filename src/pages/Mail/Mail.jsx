@@ -6,11 +6,13 @@ import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined
 import AddIcon from "@mui/icons-material/Add";
 import LabelOutlinedIcon from "@mui/icons-material/LabelOutlined";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
-import { useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import SendOutlinedIcon from "@mui/icons-material/SendOutlined";
+import { useState } from "react";
+
 export default function Mail() {
   const [openCompose, setOpenCompose] = useState(false);
+
   const stats = [
     {
       title: "Inbox",
@@ -37,6 +39,7 @@ export default function Mail() {
       color: "#ef4444",
     },
   ];
+
   const mails = [
     {
       id: 1,
@@ -71,6 +74,7 @@ export default function Mail() {
       unread: true,
     },
   ];
+
   const labels = [
     {
       name: "Work",
@@ -89,61 +93,66 @@ export default function Mail() {
       color: "#f59e0b",
     },
   ];
+
   return (
-    <div className="mail">
+    <main className="mail">
       <div className="mailHeader">
-        <div>
+        <div className="mailHeaderContent">
           <h1>Inbox</h1>
           <p>Manage all your conversations and messages.</p>
         </div>
 
-        <button className="composeBtn" onClick={() => setOpenCompose(true)}>
+        <button
+          type="button"
+          className="composeBtn"
+          onClick={() => setOpenCompose(true)}
+        >
           <AddIcon />
-          Compose
+          <span>Compose</span>
         </button>
       </div>
+
       <div className="mailSearch">
         <SearchIcon />
-
         <input type="text" placeholder="Search messages..." />
       </div>
 
-      <div className="mailCards">
+      <section className="mailCards">
         {stats.map((item, index) => (
           <div className="mailCard" key={index}>
-            <div className="mailIcon" style={{ background: item.color }}>
+            <div className="mailIcon" style={{ backgroundColor: item.color }}>
               {item.icon}
             </div>
 
-            <div>
+            <div className="mailCardInfo">
               <span>{item.title}</span>
-
               <h2>{item.value}</h2>
             </div>
           </div>
         ))}
-      </div>
-      <div className="mailContent">
+      </section>
+
+      <section className="mailContent">
         <div className="inbox">
           <h2>Inbox</h2>
 
-          {mails.map((mail) => (
-            <div className="mailItem" key={mail.id}>
-              <div className="avatar">{mail.name.charAt(0)}</div>
+          <div className="inboxList">
+            {mails.map((mail) => (
+              <div className="mailItem" key={mail.id}>
+                <div className="avatar">{mail.name.charAt(0)}</div>
 
-              <div className="mailInfo">
-                <h4>{mail.name}</h4>
+                <div className="mailInfo">
+                  <h4>{mail.name}</h4>
+                  <span>{mail.subject}</span>
+                </div>
 
-                <span>{mail.subject}</span>
+                <div className="mailTime">
+                  <small>{mail.time}</small>
+                  {mail.unread && <div className="badge" />}
+                </div>
               </div>
-
-              <div className="mailTime">
-                <small>{mail.time}</small>
-
-                {mail.unread && <div className="badge"></div>}
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
         <div className="mailPreview">
@@ -162,11 +171,12 @@ export default function Mail() {
               can display the selected message here.
             </p>
 
-            <button>Reply</button>
+            <button type="button">Reply</button>
           </div>
         </div>
-      </div>
-      <div className="mailBottom">
+      </section>
+
+      <section className="mailBottom">
         <div className="labelCard">
           <h2>Labels</h2>
 
@@ -178,7 +188,6 @@ export default function Mail() {
                   fontSize: 16,
                 }}
               />
-
               <span>{item.name}</span>
             </div>
           ))}
@@ -189,73 +198,73 @@ export default function Mail() {
 
           <div className="activityItem">
             <LabelOutlinedIcon className="activityIcon" />
-
             <div>
               <h4>New Message</h4>
-
               <span>Emma sent you a new email.</span>
             </div>
           </div>
 
           <div className="activityItem">
             <LabelOutlinedIcon className="activityIcon" />
-
             <div>
               <h4>Draft Saved</h4>
-
               <span>Your draft has been saved.</span>
             </div>
           </div>
 
           <div className="activityItem">
             <LabelOutlinedIcon className="activityIcon" />
-
             <div>
               <h4>Mail Deleted</h4>
-
               <span>One email moved to trash.</span>
             </div>
           </div>
 
           <div className="activityItem">
             <LabelOutlinedIcon className="activityIcon" />
-
             <div>
               <h4>Starred Mail</h4>
-
-              <span>You starred John's email.</span>
+              <span>You starred John&apos;s email.</span>
             </div>
           </div>
         </div>
-      </div>
+      </section>
+
       {openCompose && (
-        <div className="composeOverlay">
-          <div className="composeModal">
+        <div className="composeOverlay" onClick={() => setOpenCompose(false)}>
+          <div
+            className="composeModal"
+            onClick={(event) => event.stopPropagation()}
+          >
             <div className="composeHeader">
               <h2>New Message</h2>
 
-              <CloseIcon
-                className="closeIcon"
+              <button
+                type="button"
+                className="closeBtn"
                 onClick={() => setOpenCompose(false)}
-              />
+                aria-label="Close compose modal"
+              >
+                <CloseIcon />
+              </button>
             </div>
 
             <div className="composeBody">
               <input type="text" placeholder="To" />
-
               <input type="text" placeholder="Subject" />
 
-              <textarea rows="8" placeholder="Write your message..."></textarea>
+              <textarea rows={8} placeholder="Write your message..." />
 
               <div className="composeFooter">
                 <button
+                  type="button"
                   className="cancelBtn"
                   onClick={() => setOpenCompose(false)}
                 >
                   Cancel
                 </button>
 
-                <button className="sendBtn">
+                <button type="button" className="sendBtn">
                   <SendOutlinedIcon />
                   Send
                 </button>
@@ -264,6 +273,6 @@ export default function Mail() {
           </div>
         </div>
       )}
-    </div>
+    </main>
   );
 }
